@@ -49,7 +49,7 @@ for i in range(2):
         content_loss = mse(content_generate, content_target)
 
         style_loss = 0
-        for j in range(5):
+        for j in range(len(STYLE_WEIGHTS)):
             style_loss += STYLE_WEIGHTS[j] * mse(style_generate[j], style_target[j])
 
         loss = content_loss + style_loss
