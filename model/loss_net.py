@@ -8,7 +8,7 @@ class LossNet(torch.nn.Module):
         device = "cuda:0" if torch.cuda.is_available() else "cpu"
         vgg16 = models.vgg16(pretrained=True).to(device)
         self.module_list = list(vgg16.features)
-        self.need_layer = [3, 8, 17, 26, 35]
+        self.need_layer = [3, 8, 17, 26]
 
     def forward(self, inputs):
         result = []

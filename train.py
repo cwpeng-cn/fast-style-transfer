@@ -10,7 +10,7 @@ from model.loss_net import LossNet
 LR = 0.001
 BATCH_SIZE = 4
 IMAGE_SIZE = 224
-STYLE_WEIGHTS = [i * 2 for i in [1e2, 1e4, 1e4, 5e3, 1e4]]
+STYLE_WEIGHTS = [i * 2 for i in [1e2, 1e4, 1e4, 5e3]]
 DATASET = "../datasets/Intel_image_classification/seg_train/seg_train"
 
 m_transform = transforms.Compose([
@@ -49,7 +49,6 @@ for i in range(2):
         content_loss = mse(content_generate, content_target)
 
         style_loss = 0
-        print(len(style_generate), len(style_target))
         for j in range(5):
             style_loss += STYLE_WEIGHTS[j] * mse(style_generate[j], style_target[j])
 
