@@ -11,7 +11,7 @@ LR = 0.001
 BATCH_SIZE = 4
 IMAGE_SIZE = 224
 STYLE_WEIGHTS = [i * 2 for i in [1e2, 1e4, 1e4, 5e3, 1e4]]
-DATASET = "../datasets/Intel_image_classification"
+DATASET = "../datasets/Intel_image_classification/seg_train/seg_train"
 
 m_transform = transforms.Compose([
     transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),
