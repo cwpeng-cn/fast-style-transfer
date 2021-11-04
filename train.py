@@ -58,9 +58,9 @@ for i in range(2):
         if step % 100 == 0:
             print(step, "  content loss:", content_loss.data, "    style loss:", style_loss)
 
-        if step % 600 == 0:
-            show_image(contents_imgs.cpu().data, is_show=False)
-            show_image(generate_imgs.cpu().data)
+        # if step % 600 == 0:
+        #     show_image(contents_imgs.cpu().data, is_show=False)
+        #     show_image(generate_imgs.cpu().data)
 
         if step > 8000 and step % 1000 == 0:
             save_network("storage", transferNet, step)
