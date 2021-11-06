@@ -17,7 +17,7 @@ m_transform = transforms.Compose([
     transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),
     transforms.ToTensor(), transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
 train_dataset = datasets.ImageFolder(DATASET, m_transform)
-train_loader = data.DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
+train_loader = data.DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, drop_last=True)
 
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 style_img = get_image("./images/style image.jpg", m_transform).to(device)
