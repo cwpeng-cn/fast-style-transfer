@@ -63,7 +63,7 @@ for i in range(EPOCH):
         #     show_image(contents_imgs.cpu().data, is_show=False)
         #     show_image(generate_imgs.cpu().data)
 
-        if step > 4000 and step % 1000 == 0:
+        if step % 1000 == 0:
             save_network("storage", transferNet, step)
 
         optimizer.step()
