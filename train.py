@@ -8,6 +8,7 @@ from model.transformer_net import TransferNet
 from model.loss_net import LossNet
 
 LR = 0.001
+EPOCH = 2
 BATCH_SIZE = 4
 IMAGE_SIZE = 224
 STYLE_WEIGHTS = [i * 2 for i in [1e2, 1e4, 1e4, 5e3]]
@@ -36,7 +37,7 @@ transferNet.train()
 lossNet.eval()
 
 step = 0
-for i in range(2):
+for i in range(EPOCH):
     for contents_imgs, _ in train_loader:
         contents_imgs = contents_imgs.cuda()
         optimizer.zero_grad()
@@ -62,7 +63,7 @@ for i in range(2):
         #     show_image(contents_imgs.cpu().data, is_show=False)
         #     show_image(generate_imgs.cpu().data)
 
-        if step > 8000 and step % 1000 == 0:
+        if step > 4000 and step % 1000 == 0:
             save_network("storage", transferNet, step)
 
         optimizer.step()
