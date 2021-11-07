@@ -52,7 +52,7 @@ def save_network(path, network, epoch_label, is_only_parameter=True):
     if is_only_parameter:
         state = network.state_dict()
         for key in state: state[key] = state[key].clone().cpu()
-        torch.save(network.state_dict(), save_path)
+        torch.save(network.state_dict(), save_path, _use_new_zipfile_serialization=False)
     else:
         torch.save(network.cpu(), save_path)
 
