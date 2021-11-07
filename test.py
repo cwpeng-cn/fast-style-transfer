@@ -12,12 +12,12 @@ m_transform = transforms.Compose([
 
 content_img = get_image("./images/test image.jpg", m_transform)
 
-# start_time = time.time()
-# output_image = net(content_img)
-# infer_time = time.time() - start_time
-# print("推理时间为：", infer_time)
-# show_image(output_image.cpu().data)
-# save_image(output_image.cpu().data, "images/output image.jpg")
+start_time = time.time()
+output_image = net(content_img)
+infer_time = time.time() - start_time
+print("推理时间为：", infer_time)
+show_image(output_image.cpu().data)
+save_image(output_image.cpu().data, "images/output image.jpg")
 
 
 print("模型转换开始")
