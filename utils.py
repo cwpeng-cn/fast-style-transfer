@@ -62,7 +62,5 @@ def restore_network(path, epoch, network=None):
     if network is None:
         network = torch.load(path)
     else:
-        network.load_state_dict(torch.load(path))
-    if torch.cuda.is_available:
-        network.cuda()
+        network.load_state_dict(torch.load(path, map_location=torch.device('cpu')))
     return network
