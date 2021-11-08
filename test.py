@@ -19,7 +19,6 @@ print("推理时间为：", infer_time)
 show_image(output_image.cpu().data)
 save_image(output_image.cpu().data, "images/output image.jpg")
 
-
 print("模型转换开始")
 x = torch.rand(1, 3, 224, 224)
 traced_script_module = torch.jit.trace(func=net, example_inputs=x)

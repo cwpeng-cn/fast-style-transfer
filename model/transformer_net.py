@@ -63,7 +63,7 @@ class ResidualBlock(torch.nn.Module):
     def __init__(self, channels):
         super(ResidualBlock, self).__init__()
         self.conv1 = ConvLayer(channels, channels, kernel_size=3, stride=1)
-        self.in1 = (channels)
+        self.in1 = nn.InstanceNorm2d(channels)
         self.conv2 = ConvLayer(channels, channels, kernel_size=3, stride=1)
         self.in2 = nn.InstanceNorm2d(channels)
         self.relu = nn.ReLU()
